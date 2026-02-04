@@ -72,46 +72,91 @@
     </footer>
 
     <script>
-      const config = {
-        target: "Cabeleireiras",
-        acao: "Enviar Mensagens",
-        tempo: "em 2 dias",
-        zap: "WhatsApp",
-      };
-      const frasesBase = [
-        `Atenção ${config.target}: A chocante verdade sobre ${config.acao} e como ser mestre no ${config.zap}!`,
-        `Descubra aqui a melhor maneira de ${config.acao} ${config.tempo}.`,
-        `2 Maneiras fáceis de ${config.acao} ${config.tempo}.`,
-        `Descubra como ${config.acao} ${config.tempo}! Resultado 100% Garantido!`,
-        `Uma maneira 100% garantida de ${config.acao} ${config.tempo}!`,
-        `Novo Método: 2 Maneiras comprovadas de ${config.acao} rápido.`,
-        `Novo e Revolucionário Método revela como ${config.acao} ${config.tempo}.`,
-        `${config.zap} Revela: Os segredos para ${config.acao} ${config.tempo}.`,
-        `Revelamos uma incrível maneira de ${config.acao} no ${config.zap}.`,
-        `Especialista em ${config.zap} descobre o segredo de como ${config.acao}.`,
-        `A maneira fácil de ${config.acao} ${config.tempo}.`,
-        `Você está pronto para ${config.acao} ${config.tempo}?`,
-        `Você realmente deseja ${config.acao} ${config.tempo}?`,
-        `Você achava impossível ${config.acao} ${config.tempo}?`,
-        `Meus amigos riam de mim, até me verem ${config.acao} com sucesso.`,
-        `Se você sabe ler e escrever, então pode ${config.acao} ${config.tempo}.`,
-        `Uma maneira inacreditável de ${config.acao} em 48 horas.`,
-        `2 Estratégias que você pode usar para ${config.acao} ${config.tempo}.`,
-        `As 2 maneiras mais rápidas de ${config.acao} agora.`,
-        `O segredo mestre para ${config.acao} ${config.tempo}.`,
+      const categorias = [
+        {
+          titulo: "🤖 INTELIGÊNCIA ARTIFICIAL",
+          frase:
+            "Como usar IA Generativa para criar conteúdos que vendem em segundos.",
+        },
+        {
+          titulo: "🚀 TRÁFEGO PAGO",
+          frase:
+            "O fim dos cookies: Como dominar o tráfego pago na nova era dos algoritmos.",
+        },
+        {
+          titulo: "💡 COPYWRITING",
+          frase:
+            "Gatilhos mentais de 2026: A nova neuro-escrita para conversão imediata.",
+        },
+        {
+          titulo: "📊 ESTRATÉGIA & ROI",
+          frase:
+            "3 Maneiras de automatizar seu funil de vendas e alcançar um ROI de 10x.",
+        },
+        {
+          titulo: "📱 SOCIAL COMMERCE",
+          frase:
+            "Como transformar seu perfil em uma vitrine automática que vende 24h por dia.",
+        },
+        {
+          titulo: "🧬 CRM PREDITIVO",
+          frase:
+            "Descubra como prever a próxima compra do seu cliente usando análise de dados.",
+        },
+        {
+          titulo: "🎯 POSICIONAMENTO",
+          frase:
+            "O segredo para se tornar a autoridade máxima do seu nicho este ano.",
+        },
+        {
+          titulo: "🔥 LANÇAMENTOS",
+          frase:
+            "Como escalar infoprodutos sem depender de lançamentos exaustivos.",
+        },
+        {
+          titulo: "💰 VENDAS DIRETAS",
+          frase:
+            "A tática de micro-segmentação avançada para vender para públicos qualificados.",
+        },
+        {
+          titulo: "🌐 ECOSSISTEMA",
+          frase:
+            "Como estruturar um ecossistema digital que funciona sem intervenção humana.",
+        },
       ];
 
-      // Gera 100 variações baseadas no arquivo original consolidado
+      const frasesBase = [
+        "A verdade chocante sobre como a IA está engolindo quem não se atualiza.",
+        "Pare de queimar dinheiro com anúncios genéricos e use a 'Mensagem Única'.",
+        "Meus concorrentes riam da automação, até que meus lucros triplicaram.",
+        "Como posicionar sua marca no topo das buscas por voz e busca visual.",
+        "A maneira mais rápida de transformar seguidores em clientes fiéis hoje.",
+        "O passo a passo para dominar as novas regras do algoritmo em 2026.",
+        "Neuro-marketing avançado: Como usar gatilhos éticos para acelerar vendas.",
+        "Se você domina o básico, este método vai te levar ao nível avançado.",
+        "A estratégia inacreditável para reter clientes por 3x mais tempo.",
+        "O guia definitivo para escalar sua operação com menos equipe e mais lucro.",
+      ];
+
       const container = document.getElementById("grid-frases");
+
       for (let i = 0; i < 100; i++) {
-        const fraseIndex = i % frasesBase.length;
+        // Alterna entre as categorias e frases para gerar 100 variações ricas
+        const cat = categorias[i % categorias.length];
+        const complemento = frasesBase[i % frasesBase.length];
+
         const div = document.createElement("div");
         div.className =
-          "card-headline bg-white p-5 rounded-xl border border-gray-200 transition-all flex gap-3";
+          "card-headline bg-white p-5 rounded-xl border border-gray-200 transition-all flex flex-col gap-2 shadow-sm border-l-4 border-l-red-600";
+
         div.innerHTML = `
-                <span class="text-red-500 font-bold text-xs">${i + 1}.</span>
-                <p class="text-gray-700 text-sm font-medium leading-relaxed">${frasesBase[fraseIndex]}</p>
-            `;
+            <div class="flex justify-between items-center">
+                <span class="text-[10px] font-black text-red-600 uppercase tracking-widest">${cat.titulo}</span>
+                <span class="text-gray-300 font-bold text-[10px]">#${i + 1}</span>
+            </div>
+            <p class="text-gray-800 text-sm font-semibold leading-tight">${cat.frase}</p>
+            <p class="text-gray-500 text-[11px] italic">${complemento}</p>
+        `;
         container.appendChild(div);
       }
     </script>
